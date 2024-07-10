@@ -75,10 +75,20 @@ async def fetch(ctx, *args) -> None:
         return await ctx.send(
             "It appears Nadocast has not put out the new images for this time range! Please try again in a minute."
         )
+
+    #embed
+    embed = discord.Embed(title="Nadocast Information", description=f"Nadocast information for {await getUTCTime()}", color=0x00ff00)
+    embed.set_image(url=f"attachment://{files[0]}")
+
     # debug.sort()
     # await ctx.send(debug)
-    await ctx.send(files=files)
+    await ctx.send(embed=embed)
 
+@client.command(name="embed")
+async def embed(ctx) -> None:
+    embed = discord.Embed(title="Nadocast Information", description=f"Nadocast information for {await getUTCTime()}", color=0x00ff00)
+    
+    await ctx.send(embed=embed)
 
 if type(TOKEN) == type(None):
     print("Please follow the readme to setup the bot!")

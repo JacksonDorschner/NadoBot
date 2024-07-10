@@ -15,7 +15,7 @@ async def getUTCTime() -> datetime:
     return utc_time
 
 
-async def getNadoCastData(time: datetime) -> list[str]:
+async def getNadoCastData(time: datetime): # -> list[str]:
 
     # Get specific data from the datetime object
     month = time.strftime("%m")
